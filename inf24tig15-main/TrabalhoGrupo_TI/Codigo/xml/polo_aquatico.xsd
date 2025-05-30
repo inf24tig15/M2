@@ -1,0 +1,54 @@
+<?xml version = "1.0" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="ensino_polo_aquatico">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="niveis" type="niveisType"/>
+        <xs:element name="instrutores" type="instrutoresType"/>
+        <xs:element name="aulas" type="aulasType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="niveisType">
+    <xs:sequence>
+      <xs:element name="nivel" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="nome" type="xs:string"/>
+            <xs:element name="objetivos" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="instrutoresType">
+    <xs:sequence>
+      <xs:element name="instrutor" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="nome" type="xs:string"/>
+            <xs:element name="certificacao" type="xs:string"/>
+            <xs:element name="experiencia_anos" type="xs:integer"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="aulasType">
+    <xs:sequence>
+      <xs:element name="aula" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="nivel" type="xs:string"/>
+            <xs:element name="data" type="xs:date"/>
+            <xs:element name="duracao_min" type="xs:integer"/>
+            <xs:element name="instrutor" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
