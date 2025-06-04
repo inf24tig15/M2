@@ -24,10 +24,6 @@ Repositório para guardar o trabalho de grupo.
 
 - Capítulo III : [Produto]()
 
-### Apresentação
-
-- Capítulo IV : [Apresentação]()
-
 ## Equipa
 ***
 
