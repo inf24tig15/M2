@@ -1,52 +1,68 @@
 <?xml version = "1.0" ?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-<xs:element name="ensino_polo_aquatico">
+<xs:element name="polo_aquatico">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="niveis" type="niveisType"/>
-        <xs:element name="instrutores" type="instrutoresType"/>
-        <xs:element name="aulas" type="aulasType"/>
+        <xs:element name="regras" type="regrasType"/>
+        <xs:element name="tecnicas" type="tecnicasType"/>
+        <xs:element name="equipamentos" type="equipamentosType"/>
+        <xs:element name="competicoes" type="competicoesType"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
 
-  <xs:complexType name="niveisType">
+  <xs:complexType name="regrasType">
     <xs:sequence>
-      <xs:element name="nivel" maxOccurs="unbounded">
+      <xs:element name="regra" maxOccurs="unbounded">
         <xs:complexType>
-          <xs:sequence>
-            <xs:element name="nome" type="xs:string"/>
-            <xs:element name="objetivos" type="xs:string"/>
-          </xs:sequence>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="titulo" type="xs:string" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
         </xs:complexType>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="instrutoresType">
+  <xs:complexType name="tecnicasType">
     <xs:sequence>
-      <xs:element name="instrutor" maxOccurs="unbounded">
+      <xs:element name="tecnica" maxOccurs="unbounded">
         <xs:complexType>
-          <xs:sequence>
-            <xs:element name="nome" type="xs:string"/>
-            <xs:element name="certificacao" type="xs:string"/>
-            <xs:element name="experiencia_anos" type="xs:integer"/>
-          </xs:sequence>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="nome" type="xs:string" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
         </xs:complexType>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="aulasType">
+  <xs:complexType name="equipamentosType">
     <xs:sequence>
-      <xs:element name="aula" maxOccurs="unbounded">
+      <xs:element name="equipamento" maxOccurs="unbounded">
         <xs:complexType>
-          <xs:sequence>
-            <xs:element name="nivel" type="xs:string"/>
-            <xs:element name="data" type="xs:date"/>
-            <xs:element name="duracao_min" type="xs:integer"/>
-            <xs:element name="instrutor" type="xs:string"/>
-          </xs:sequence>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="nome" type="xs:string" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="competicoesType">
+    <xs:sequence>
+      <xs:element name="competicao" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="nome" type="xs:string" use="required"/>
+              <xs:attribute name="frequencia" type="xs:string" use="optional"/>
+            </xs:extension>
+          </xs:simpleContent>
         </xs:complexType>
       </xs:element>
     </xs:sequence>
